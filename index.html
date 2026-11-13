@@ -5755,7 +5755,9 @@ function refreshPresentation(){
 function initializeShell(){
   const brandLogo=qs('.brand-logo');
   if(brandLogo){
-    brandLogo.src='../../../../Downloads/MathNova%20Orbit%20Learning%20Badge.png';
+    const fallbackLogo=brandLogo.src;
+    brandLogo.onerror=function(){ brandLogo.src=fallbackLogo; };
+    brandLogo.src='assets/mathnova-orbit-learning-badge.png';
     brandLogo.alt='MathNova Orbit Learning badge';
   }
   applyTheme(readUIPreference('psim_ui_theme_v1','light'));
